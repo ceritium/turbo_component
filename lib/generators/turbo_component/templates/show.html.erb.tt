@@ -1,0 +1,2 @@
+<h1><%= @component_class_name %>#show</h1>
+<p>Find me in <%= @path %></p>

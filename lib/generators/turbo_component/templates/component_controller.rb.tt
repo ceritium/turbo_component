@@ -1,0 +1,7 @@
+class <%= class_name %>::ComponentController < ApplicationController
+  include TurboComponent::Concerns::Controller
+
+  display :show
+  def show
+  end
+end

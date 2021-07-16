@@ -1,0 +1,9 @@
+Description:
+    Generates a turbo component scaffold
+
+Example:
+    bin/rails generate turbo_component ComponentName
+
+    This will create:
+        app/turbo_components/component_name/component_controller.rb
+        app/turbo_components/component_name/views/show.html.erb
