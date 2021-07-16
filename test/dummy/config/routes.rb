@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   #   TurboComponent::Router.load_routes!(self)
   # end
 
-  root 'welcome#show'
+  root "welcome#show"
 end

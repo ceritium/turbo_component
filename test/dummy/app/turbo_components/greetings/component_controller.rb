@@ -6,7 +6,7 @@ class Greetings::ComponentController < ApplicationController
     @author = params[:author]
   end
 
-  post :bye, 'bye/:name'
+  post :bye, "bye/:name"
   def bye
     # TODO
   end

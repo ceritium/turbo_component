@@ -11,15 +11,15 @@ module TurboComponent::Concerns::Controller
     prepend_before_action :append_turbo_components_view_paths
     prepend_before_action :parse_locals
 
-    append_view_path 'app/turbo_components/'
-    append_view_path 'test/dummy/app/turbo_components/' if Rails.env.test?
+    append_view_path "app/turbo_components/"
+    append_view_path "test/dummy/app/turbo_components/" if Rails.env.test?
 
     layout :layout_name
 
     helper_method :turbo_component_request?
     helper_method :turbo_key
 
-    turbo_component_options layout: 'container'
+    turbo_component_options layout: "container"
   end
 
   def layout_name
@@ -29,11 +29,11 @@ module TurboComponent::Concerns::Controller
   end
 
   def turbo_component_request?
-    request.headers['Turbo-Frame'].present? && !turbo_stream_request?
+    request.headers["Turbo-Frame"].present? && !turbo_stream_request?
   end
 
   def turbo_stream_request?
-    request.headers.fetch('HTTP_ACCEPT', '')&.include?('text/vnd.turbo-stream')
+    request.headers.fetch("HTTP_ACCEPT", "")&.include?("text/vnd.turbo-stream")
   end
 
   def turbo_key
@@ -41,27 +41,26 @@ module TurboComponent::Concerns::Controller
   end
 
   def component_name
-    controller_path.split('/component', 2)[0]
+    controller_path.split("/component", 2)[0]
   end
 
   private
+    def parse_locals
+      return unless params[:_encoded].present?
 
-  def parse_locals
-    return unless params[:_encoded].present?
-
-    decoded = TurboComponent::Encryptor.decode(params[:_encoded], purpose: params[:_turbo_id])
-    deserialized = ActiveJob::Arguments.deserialize(decoded)
-    deserialized.each do |key, value|
-      params[key] = value
+      decoded = TurboComponent::Encryptor.decode(params[:_encoded], purpose: params[:_turbo_id])
+      deserialized = ActiveJob::Arguments.deserialize(decoded)
+      deserialized.each do |key, value|
+        params[key] = value
+      end
     end
-  end
 
-  def append_turbo_components_view_paths
-    # lookup_context.prefixes.clear
-    view = "#{component_name}/views"
-    lookup_context.prefixes.unshift view if lookup_context.prefixes.exclude?(view)
+    def append_turbo_components_view_paths
+      # lookup_context.prefixes.clear
+      view = "#{component_name}/views"
+      lookup_context.prefixes.unshift view if lookup_context.prefixes.exclude?(view)
 
-    # https://github.com/rails/actionpack-action_caching/issues/32
-    lookup_context.formats.unshift :html if lookup_context.formats.exclude?(:html)
-  end
+      # https://github.com/rails/actionpack-action_caching/issues/32
+      lookup_context.formats.unshift :html if lookup_context.formats.exclude?(:html)
+    end
 end

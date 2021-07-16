@@ -1,4 +1,4 @@
-require 'turbo-rails'
+require "turbo-rails"
 require "turbo_component/version"
 require "turbo_component/engine"
 
