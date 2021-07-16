@@ -15,7 +15,7 @@ class TurboComponentGenerator < Rails::Generators::NamedBase
   end
 
   private
-    def base_path
-      File.join("app/turbo_components", name.underscore)
-    end
+  def base_path
+    File.join("app/turbo_components", name.underscore)
+  end
 end

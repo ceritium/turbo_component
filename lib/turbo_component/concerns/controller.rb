@@ -47,22 +47,22 @@ module TurboComponent::Concerns::Controller
   end
 
   private
-    def parse_locals
-      return unless params[:_encoded].present?
+  def parse_locals
+    return unless params[:_encoded].present?
 
-      decoded = TurboComponent::Encryptor.decode(params[:_encoded], purpose: params[:_turbo_id])
-      deserialized = ActiveJob::Arguments.deserialize(decoded)
-      deserialized.each do |key, value|
-        params[key] = value
-      end
+    decoded = TurboComponent::Encryptor.decode(params[:_encoded], purpose: params[:_turbo_id])
+    deserialized = ActiveJob::Arguments.deserialize(decoded)
+    deserialized.each do |key, value|
+      params[key] = value
     end
+  end
 
-    def append_turbo_components_view_paths
-      # lookup_context.prefixes.clear
-      view = "#{component_name}/views"
-      lookup_context.prefixes.unshift view if lookup_context.prefixes.exclude?(view)
+  def append_turbo_components_view_paths
+    # lookup_context.prefixes.clear
+    view = "#{component_name}/views"
+    lookup_context.prefixes.unshift view if lookup_context.prefixes.exclude?(view)
 
-      # https://github.com/rails/actionpack-action_caching/issues/32
-      lookup_context.formats.unshift :html if lookup_context.formats.exclude?(:html)
-    end
+    # https://github.com/rails/actionpack-action_caching/issues/32
+    lookup_context.formats.unshift :html if lookup_context.formats.exclude?(:html)
+  end
 end
