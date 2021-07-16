@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TurboComponent::Encryptor
   DEFAULT_SALT = '!@#Q156^tdSXggT0&*789++8&?_|T%\/++==RqE'
 

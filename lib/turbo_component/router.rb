@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TurboComponent
   class Router
     def self.load_routes!(context)

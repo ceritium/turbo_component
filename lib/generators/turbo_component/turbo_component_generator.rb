@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TurboComponentGenerator < Rails::Generators::NamedBase
   desc "Create a scaffold structure for a new turbo_component"
   source_root File.expand_path("templates", __dir__)

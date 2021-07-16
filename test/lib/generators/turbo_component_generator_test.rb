@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 require "generators/turbo_component/turbo_component_generator"
 

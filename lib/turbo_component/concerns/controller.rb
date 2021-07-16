@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TurboComponent::Concerns::Controller
   extend ActiveSupport::Concern
 
