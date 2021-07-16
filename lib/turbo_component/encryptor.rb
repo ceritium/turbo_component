@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TurboComponent::Encryptor
   DEFAULT_SALT = '!@#Q156^tdSXggT0&*789++8&?_|T%\/++==RqE'
 
@@ -38,12 +40,11 @@ class TurboComponent::Encryptor
   end
 
   private
-
-  def encryptor
-    @encryptor ||= begin
-      key = self.class.get_key secret, salt
-      key = key[0..31]
-      ActiveSupport::MessageEncryptor.new(key)
+    def encryptor
+      @encryptor ||= begin
+        key = self.class.get_key secret, salt
+        key = key[0..31]
+        ActiveSupport::MessageEncryptor.new(key)
+      end
     end
-  end
 end

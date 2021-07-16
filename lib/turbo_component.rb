@@ -1,4 +1,6 @@
-require 'turbo-rails'
+# frozen_string_literal: true
+
+require "turbo-rails"
 require "turbo_component/version"
 require "turbo_component/engine"
 

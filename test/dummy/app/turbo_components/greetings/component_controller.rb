@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Greetings::ComponentController < ApplicationController
   include TurboComponent::Concerns::Controller
 
@@ -6,7 +8,7 @@ class Greetings::ComponentController < ApplicationController
     @author = params[:author]
   end
 
-  post :bye, 'bye/:name'
+  post :bye, "bye/:name"
   def bye
     # TODO
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   TurboComponent::Router.load_routes!(self)
@@ -5,5 +7,5 @@ Rails.application.routes.draw do
   #   TurboComponent::Router.load_routes!(self)
   # end
 
-  root 'welcome#show'
+  root "welcome#show"
 end

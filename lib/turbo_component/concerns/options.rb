@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TurboComponent::Concerns::Options
   extend ActiveSupport::Concern
 
@@ -11,10 +13,10 @@ module TurboComponent::Concerns::Options
     set_turbo_component_options(*args)
 
     opts = self.class.turbo_component_options
-    class_default_opts = opts.fetch('default', {})
+    class_default_opts = opts.fetch("default", {})
     class_action_opts = opts.fetch(action_name, {})
 
-    instance_default_opts = @turbo_component_options.fetch('default', {})
+    instance_default_opts = @turbo_component_options.fetch("default", {})
     instance_action_opts = @turbo_component_options.fetch(action_name, {})
 
     result = {}.with_indifferent_access
@@ -30,7 +32,7 @@ module TurboComponent::Concerns::Options
     def set_turbo_component_options(*args)
       opts = args.extract_options!
       actions = args
-      actions << 'default' if actions.blank?
+      actions << "default" if actions.blank?
 
       @turbo_component_options ||= {}.with_indifferent_access
 

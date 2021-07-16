@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
@@ -8,6 +10,6 @@ require "rails/test_help"
 if ActiveSupport::TestCase.respond_to?(:fixture_path=)
   # Load fixtures from test dummy rails app
   ActiveSupport::TestCase.file_fixture_path = ActiveSupport::TestCase.fixture_path + "/files"
-  ActiveSupport::TestCase.fixture_path = ActiveSupport::TestCase.fixture_path 
+  ActiveSupport::TestCase.fixture_path = ActiveSupport::TestCase.fixture_path
   ActiveSupport::TestCase.fixtures :all
 end

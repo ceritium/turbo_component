@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TurboComponentsHelper
   include Turbo::FramesHelper
 
@@ -27,7 +29,7 @@ module TurboComponentsHelper
     url = polymorphic_url(turbo_url, base_params.merge(attrs))
 
     opts[:src] = url
-    opts['data-turbo-permanent'] = true if permanent
+    opts["data-turbo-permanent"] = true if permanent
     turbo_frame_tag(turbo_id, **opts, &block)
   end
 
@@ -66,10 +68,10 @@ module TurboComponentsHelper
         /^action_controller/i,
         /^rack\.request/i,
         /^request/i,
-        'HTTP_ACCEPT',
-        'CONTENT_TYPE',
-        'CONTENT_LENGTH',
-        'REQUEST_METHOD'
+        "HTTP_ACCEPT",
+        "CONTENT_TYPE",
+        "CONTENT_LENGTH",
+        "REQUEST_METHOD"
         false
       else
         true
