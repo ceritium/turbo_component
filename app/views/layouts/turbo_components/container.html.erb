@@ -1,7 +1,3 @@
-<% if turbo_component_request? %>
-  <%= turbo_frame_tag turbo_key do %>
-      <%= content_for?(:content) ? yield(:content) : yield %>
-  <% end %>
-<% else %>
-    <%= content_for?(:content) ? yield(:content) : yield %>
+<%= turbo_frame_tag turbo_key do %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 <% end %>
