@@ -55,11 +55,8 @@ class TurboComponentsHelperTest < ActionView::TestCase
     turbo_frame = Nokogiri::XML.fragment(output).at("turbo-frame")
 
     params = parse_params(turbo_frame)
-
     decoded = TurboComponent::Encryptor.decode(params["_encoded"], purpose: params["_turbo_id"])
-
-    deserialized = ActiveJob::Arguments.deserialize(decoded).to_h
-    assert_equal deserialized, locals
+    assert_equal decoded.to_h, locals
   end
 
   test "async turbo_component with block" do

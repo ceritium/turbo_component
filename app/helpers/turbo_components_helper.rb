@@ -20,8 +20,7 @@ module TurboComponentsHelper
     permanent = opts.delete(:permanent)
 
     # TODO: cache
-    serialized = ActiveJob::Arguments.serialize(locals)
-    encoded = TurboComponent::Encryptor.encode(serialized, purpose: turbo_id)
+    encoded = TurboComponent::Encryptor.encode(locals, purpose: turbo_id)
     attrs = { _encoded: encoded, _turbo_id: turbo_id }
 
     turbo_url = "turbo_component_#{turbo_key}"

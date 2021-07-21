@@ -51,8 +51,7 @@ module TurboComponent::Concerns::Controller
     return unless params[:_encoded].present?
 
     decoded = TurboComponent::Encryptor.decode(params[:_encoded], purpose: params[:_turbo_id])
-    deserialized = ActiveJob::Arguments.deserialize(decoded)
-    deserialized.each do |key, value|
+    decoded.each do |key, value|
       params[key] = value
     end
   end
