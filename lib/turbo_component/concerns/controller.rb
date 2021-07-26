@@ -22,6 +22,11 @@ module TurboComponent::Concerns::Controller
     helper_method :turbo_key
 
     turbo_component_options layout: "container"
+
+    display :display
+    def display
+      render inline: TurboComponent::Display.render(params: params, controller: self.class, layout: layout_name)
+    end
   end
 
   def layout_name

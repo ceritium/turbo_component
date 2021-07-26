@@ -3,9 +3,10 @@
 class Greetings::ComponentController < ApplicationController
   include TurboComponent::Concerns::Controller
 
-  display :show
-  def show
-    @author = params[:author]
+  class Display
+    def render(params:)
+      @author = params[:author]
+    end
   end
 
   post :bye, "bye/:name"

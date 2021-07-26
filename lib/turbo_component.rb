@@ -9,6 +9,8 @@ module TurboComponent
   eager_autoload do
     autoload :Router
     autoload :Encryptor
+    autoload :Helpers
+    autoload :Display
   end
 
   module Concerns
