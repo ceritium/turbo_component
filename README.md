@@ -38,7 +38,7 @@ Use it somewhere:
 
 Because turbo_components are small you will have many of them. In order to keep them under control turbo_componets provides helpers.
 
-You can define `get`, `post`, `put`, `patch` and `delete` inside your component controller as following:
+You can define `post`, `put`, `patch` and `delete` inside your component controller as following:
 
 ```ruby
 post :toggle_categories
@@ -49,23 +49,13 @@ def toggle_categories
 end
 ```
 
-There is also the `display` method to define the default action of your turbo_component:
-
-```ruby
-display :show
-def show
-  @categories = Category.all
-  @categories = @categories.where('name like :name', name: "%#{params[:name]}%") if params[:name]
-end
-```
-
 ## View helper
 
-`turbo_component` accepts all the parameters of `turbo_frame_tag` plus some additional attributes: 
+`turbo_component` accepts all the parameters of `turbo_frame_tag` plus some additional attributes:
 
 - `async`: Allow render it inline or async (powered by turbo_frame). Default `false`.
 - `turbo_id`: It is used as id on the turbo_frame_tag and for encoding the locals. Default `$turbo_component_key`, in the example is `sidebar`.
-- `locals`: Like on `render partial:` you can pass attributes to the turbo component. In the case of loading it async, the locals are serialized and encrypted. 
+- `locals`: Like on `render partial:` you can pass attributes to the turbo component. In the case of loading it async, the locals are serialized and encrypted.
 
 Example:
 

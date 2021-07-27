@@ -6,4 +6,4 @@ Example:
 
     This will create:
         app/turbo_components/component_name/component_controller.rb
-        app/turbo_components/component_name/views/show.html.erb
+        app/turbo_components/component_name/views/display.html.erb

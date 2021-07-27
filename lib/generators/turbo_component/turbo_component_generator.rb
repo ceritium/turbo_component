@@ -9,9 +9,9 @@ class TurboComponentGenerator < Rails::Generators::NamedBase
   end
 
   def create_component_show_view
-    @path = File.join(base_path, "views/show.html.erb")
+    @path = File.join(base_path, "views/display.html.erb")
     @component_class_name = "#{name.classify}::Component"
-    template "show.html.erb.tt", @path
+    template "display.html.erb.tt", @path
   end
 
   private

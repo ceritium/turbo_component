@@ -1,7 +1,9 @@
 class <%= class_name %>::ComponentController < ApplicationController
   include TurboComponent::Concerns::Controller
 
-  display :show
-  def show
+  class Display
+    def render(params:)
+      @something = params[:something]
+    end
   end
 end
