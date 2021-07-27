@@ -33,7 +33,7 @@ module TurboComponent
       path_opts = Rails.application.routes.recognize_path(url)
       controller_class = "#{path_opts[:controller].camelize}Controller".constantize
 
-      TurboComponent::Display.render(params: locals, controller: controller_class)
+      TurboComponent::Display.render(params: locals, controller_class: controller_class, request: controller.request)
     end
   end
 end

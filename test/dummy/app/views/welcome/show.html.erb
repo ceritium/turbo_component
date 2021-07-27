@@ -1,12 +1,12 @@
 <h1> Welcome </h1>
 
 
-<%= turbo_component :greetings, async: true, locals: { author: @author } %>
+<%= turbo_component :counter, async: false %>
 </br>
 
-<% 100.times do %>
-  <%= turbo_component :greetings, async: true, loading: :lazy, locals: { author: @author } do %>
-    loading...
-  <%end%>
-  </br>
-<% end %>
+<%# <% 10.times do %>
+<%#   <%= turbo_component :greetings, async: true, loading: :lazy, locals: { author: @author } do %>
+<%#     loading...
+<%#   <%end%>
+<%#   </br>
+<%# <% end %>

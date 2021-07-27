@@ -8,9 +8,4 @@ class Greetings::ComponentController < ApplicationController
       @author = params[:author]
     end
   end
-
-  post :bye, "bye/:name"
-  def bye
-    # TODO
-  end
 end
