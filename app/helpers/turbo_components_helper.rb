@@ -56,6 +56,7 @@ module TurboComponentsHelper
 
     c = controller_class.new
     p_request = ActionDispatch::Request.new(controller.request.env)
+    p_request.headers['Turbo-Component-Inline'] = true
     p_request.parameters.clear
     p_request.parameters.merge!(locals)
 

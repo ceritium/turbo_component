@@ -1,7 +1,7 @@
-<% if turbo_component_request? %>
+<% if turbo_component_inline_request? %>
+    <%= yield %>
+<% else %>
   <%= turbo_frame_tag turbo_key do %>
       <%= yield %>
   <% end %>
-<% else %>
-    <%= yield %>
 <% end %>
