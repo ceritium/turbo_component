@@ -1,4 +1,5 @@
 <h1> Welcome </h1>
+<%= turbo_stream_from :counter %>
 <%= turbo_component :counter, async: false do %>
   loading...
 <% end %>
@@ -7,12 +8,8 @@
   loading...
 <% end %>
 
-<%= turbo_component :greetings, async: false, locals: { author: @author } do %>
-  loading...
-<% end %>
-
 </br>
 <% 100.times do %>
-  <%= turbo_component :greetings, async: true, locals: { author: @author } %>
+  <%= turbo_component :greetings, async: true, loading: :lazy, locals: { author: @author } %>
   </br>
 <% end %>

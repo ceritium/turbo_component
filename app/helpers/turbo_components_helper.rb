@@ -9,7 +9,6 @@ module TurboComponentsHelper
     if async
       turbo_component_async(turbo_key, opts, &block)
     else
-      # TODO: raise exception, block not allowed
       turbo_component_inline_frame(turbo_key, opts)
     end
   end
