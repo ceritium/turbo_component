@@ -18,7 +18,7 @@ module TurboComponent::Concerns::Controller
 
     layout :layout_name
 
-    helper_method :turbo_component_request?
+    helper_method :turbo_component_inline_request?
     helper_method :turbo_key
 
     turbo_component_options layout: "container"
@@ -30,8 +30,8 @@ module TurboComponent::Concerns::Controller
     "turbo_components/#{layout}"
   end
 
-  def turbo_component_request?
-    request.headers["Turbo-Frame"].present? && !turbo_stream_request?
+  def turbo_component_inline_request?
+    request.headers["Turbo-Component-Inline"].present?
   end
 
   def turbo_stream_request?

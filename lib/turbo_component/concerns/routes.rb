@@ -10,7 +10,7 @@ module TurboComponent::Concerns::Routes
   module ClassMethods
     def display(action)
       controller_name = self.controller_name
-      component_name = self.name.split("::ComponentController", 2)[0].underscore
+      component_name = build_component_name
       turbo_component_routes do
         get component_name, to: "#{controller_name}##{action}", as: component_name
       end
@@ -38,10 +38,14 @@ module TurboComponent::Concerns::Routes
 
     def turbo_route(verb, action, path)
       controller_name = self.controller_name
-      component_name = self.name.split("::ComponentController", 2)[0].underscore
+      component_name = build_component_name
       turbo_component_routes do
         send(verb, "#{component_name}/#{path}", to: "#{controller_name}##{action}", as: "#{component_name}_#{action}")
       end
+    end
+
+    def build_component_name
+      self.name.split("::ComponentController", 2)[0].underscore
     end
 
     def turbo_component_routes(&block)

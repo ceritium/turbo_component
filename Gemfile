@@ -8,6 +8,10 @@ gemspec
 
 group :development do
   gem "sqlite3"
+  gem "byebug"
+  gem "puma"
+  # gem 'turbo-rails', '0.6.0'
+  gem "turbo-rails", git: "https://github.com/ceritium/turbo-rails", branch: "broadcasts-targets"
 end
 
 group :rubocop do
