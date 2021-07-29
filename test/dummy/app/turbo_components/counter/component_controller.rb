@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Counter::ComponentController < ApplicationController
   include TurboComponent::Concerns::Controller
 

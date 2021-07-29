@@ -8,7 +8,7 @@ gemspec
 
 group :development do
   gem "sqlite3"
-  gem 'byebug'
+  gem "byebug"
 end
 
 group :rubocop do

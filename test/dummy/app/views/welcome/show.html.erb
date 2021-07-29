@@ -13,6 +13,6 @@
 
 </br>
 <% 100.times do %>
-  <%= turbo_component :greetings, async: false, locals: { author: @author } %>
+  <%= turbo_component :greetings, async: true, locals: { author: @author } %>
   </br>
 <% end %>
