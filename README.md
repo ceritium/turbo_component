@@ -29,6 +29,10 @@ Generate a turbo component:
 Use it somewhere:
 
 ```erb
+<%= turbo_component :sidebar %>
+
+# or...
+
 <%= turbo_component :sidebar, permanent: true, async: true do %>
   loading...
 <% end %>
