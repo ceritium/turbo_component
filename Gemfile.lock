@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/ceritium/turbo-rails
-  revision: d645c291ea83a107fbbfbbee487eed607504d16b
-  branch: broadcasts-targets
+  remote: https://github.com/hotwired/turbo-rails.git
+  revision: ba86832f7f13001793ab917185788df9723666e8
+  branch: main
   specs:
     turbo-rails (0.6.0)
       rails (>= 6.0.0)
