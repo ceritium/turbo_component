@@ -4,10 +4,6 @@
   loading...
 <% end %>
 
-<%= turbo_component :counter, async: true do %>
-  loading...
-<% end %>
-
 </br>
 <% 100.times do %>
   <%= turbo_component :greetings, async: true, loading: :lazy, locals: { author: @author } %>
