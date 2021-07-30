@@ -1,5 +1,5 @@
 <h1> Welcome </h1>
-<%= turbo_stream_from :counter %>
+<%= turbo_stream_from "#{session.id}-counter" %>
 <%= turbo_component :counter, async: false do %>
   loading...
 <% end %>

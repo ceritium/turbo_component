@@ -12,7 +12,8 @@ class Counter::ComponentController < ApplicationController
     session[:counter] ||= 0
     session[:counter] += 1
 
-    Turbo::StreamsChannel.broadcast_replace_to :counter, targets: "#counter", content: helpers.turbo_component(:counter, async: false)
+    # Since this demo is based on the session, we should scope the broadcast by "session.id"
+    Turbo::StreamsChannel.broadcast_replace_to "#{session.id}-counter", targets: "#counter", content: helpers.turbo_component(:counter, async: false)
     head :ok
   end
 end
