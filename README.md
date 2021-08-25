@@ -15,7 +15,7 @@ Add `'turbo_component', '0.1.0.pre'` to the Gemfile.
 Since this project is in an exploratory phase, you would like to use the master branch to get the last changes.
 
 ```
-gem 'turbo_component`, git: 'https://github.com/ceritium/turbo_component.git`
+gem 'turbo_component', git: 'https://github.com/ceritium/turbo_component.git`
 ```
 
 Add `TurboComponent::Router.load_routes!(self)` to the `routes.rb`
